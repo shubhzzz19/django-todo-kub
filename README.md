@@ -34,5 +34,32 @@ For Minikube & Kubectl
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube 
-minikube start --driver=docker
+minikube start --driver=docker --force
 ```
+
+## Step 2 : Clone the repo and go to k8s directory to start the pods
+```
+git clone https://github.com/shubhzzz19/django-todo-kub.git
+cd django-todo-kub
+```
+
+## Step 3 : Run the Kubernetes files
+```
+kubectl apply -f pod.yaml
+kubectl apply -f deploy.yaml
+kubectl apply -f service.yaml
+```
+
+## Step 4 : Managed network and services with host Ip allocation
+```
+minikube service <service name> --url
+```
+You will get the IP ,then copy the IP and edit the hosts file
+```vi /etc/hosts```
+Insert the below in the /etc/hosts
+```<ip> todo-app.com```
+
+## Step 5 : Now curl the App with name given in the hosts 
+```curl -L http://todo-app:30007```
+
+As you can see the output of the curl our app is running 💥
