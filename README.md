@@ -1,35 +1,18 @@
-# django-todo
+# django-todo kubernetes cluster project
 A simple todo app built with django
 
-![todo App](https://raw.githubusercontent.com/shreys7/django-todo/develop/staticfiles/todoApp.png)
-### Setup
-To get this repository, run the following command inside your git enabled terminal
-```bash
-$ git clone https://github.com/shubhzzz19/django-todo.git
-```
-You will need django to be installed in you computer to run this app. Head over to https://www.djangoproject.com/download/ for the download guide
+## Step 1 : Create a AWS Linux 2 (t2.medium) instance and allocate the Elastic IP to the instance
 
-Once you have downloaded django, go to the cloned repo directory and run the following command
+For Docker Installation
+'''
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo usermod -aG docker $USER && newgrp docker
+'''
 
-```bash
-$ python3 manage.py makemigrations
-```
-
-This will create all the migrations file (database migrations) required to run this App.
-
-Now, to apply this migrations run the following command
-```bash
-$ python3 manage.py migrate
-```
-
-One last step and then our todo App will be live. We need to create an admin user to run this App. On the terminal, type the following command and provide username, password and email for the admin user
-```bash
-$ python3 manage.py createsuperuser
-```
-
-That was pretty simple, right? Now let's make the App live. We just need to start the server now and then we can start using our simple todo App. Start the server by following command
-
-```bash
-$ python3 manage.py runserver <ip>:<port>
-```
-
+For Minikube & Kubectl
+'''
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube 
+minikube start --driver=docker
+'''
