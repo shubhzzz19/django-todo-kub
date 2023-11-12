@@ -5,7 +5,7 @@
 3. Managed deployment, replication, auto-healing, auto-scaling for Kubernetes Cluster.
 4. Managed network and services with host IP allocation through proxy on AWS EC2 and Route53.
 
-*Achievements:* Reducted downtime by 75% on Production Environment. 
+*Achievements: Reducted downtime by 75% on Production Environment.*
 
 ## Step 1 : Create a AWS Linux 2 (t2.medium) instance and allocate the Elastic IP to the instance
 
